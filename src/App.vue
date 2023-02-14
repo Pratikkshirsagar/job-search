@@ -1,9 +1,3 @@
 <template>
-  <div class="wrapper">
-    <HelloWorld msg="You did it!" />
-  </div>
+  <h1 class="mt-8 text-center text-6xl">Hello Vue</h1>
 </template>
-
-<script setup>
-import HelloWorld from './components/HelloWorld.vue';
-</script>
