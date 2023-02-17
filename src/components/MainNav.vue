@@ -5,9 +5,6 @@
         class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-grey-1 px-8"
       >
         <a href="/" class="flex h-full items-center text-xl">{{ company }}</a>
-        <h2 class="ml-8 flex h-full items-center">
-          Developed by {{ auther.firstName }} {{ auther.lastName }}
-        </h2>
       </div>
     </div>
   </header>
@@ -19,10 +16,6 @@ export default {
   data() {
     return {
       company: 'Bobo Careers',
-      auther: {
-        firstName: 'Pratik',
-        lastName: 'Kshirsagar',
-      },
     };
   },
 };
