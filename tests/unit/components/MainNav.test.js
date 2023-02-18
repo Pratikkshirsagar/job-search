@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/vue';
+import userEvent from '@testing-library/user-event';
 import MainNav from '@/components/MainNav.vue';
 
 describe('MainNav', () => {
@@ -22,5 +23,25 @@ describe('MainNav', () => {
       'Students',
       'Jobs',
     ]);
+  });
+
+  describe('when the user login', () => {
+    it('displayes the user profile picture', async () => {
+      render(MainNav);
+      let profileImage = screen.queryByRole('img', {
+        name: /user profile image/i,
+      });
+      expect(profileImage).not.toBeInTheDocument();
+
+      const loginButton = screen.getByRole('button', {
+        name: /sign in/i,
+      });
+      await userEvent.click(loginButton);
+
+      profileImage = screen.getByRole('img', {
+        name: /user profile image/i,
+      });
+      expect(profileImage).toBeInTheDocument();
+    });
   });
 });
