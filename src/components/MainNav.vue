@@ -51,7 +51,7 @@ export default {
         'Teams',
         'Locations',
         'Life at Bobo Corp',
-        'How we Hire',
+        'How we hire',
         'Students',
         'Jobs',
       ],

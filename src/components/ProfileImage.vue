@@ -11,7 +11,7 @@ export default {
   name: 'ProfileImage',
   data() {
     return {
-      url: 'https://www.pngitem.com/pimgs/m/487-4876417_link-head-png-toon-link-face-png-transparent.png',
+      url: 'https://avatars.githubusercontent.com/u/32354353?s=400&u=e41e0564c9eeec3d205a67a12777fad214b4a371&v=4',
     };
   },
 };
