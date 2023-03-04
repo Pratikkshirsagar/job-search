@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full text-sm">
+  <header :class="['w-full', 'text-sm', headerHightClass]">
     <div class="fixed top-0 left-0 h-16 w-full bg-white">
       <div
         class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-grey-1 px-8"
@@ -57,6 +57,14 @@ export default {
       ],
       isLoggedIn: false,
     };
+  },
+  computed: {
+    headerHightClass() {
+      return {
+        'h-16': !this.isLoggedIn,
+        'h-32': this.isLoggedIn,
+      };
+    },
   },
   methods: {
     loginUser() {
