@@ -1,9 +1,9 @@
-import { nextTick } from "vue";
-import { render, screen } from "@testing-library/vue";
+import { nextTick } from 'vue';
+import { render, screen } from '@testing-library/vue';
 
-import TheHeadline from "@/components/JobSearch/TheHeadline.vue";
+import TheHeadline from '@/components/JobSearch/TheHeadline.vue';
 
-describe("TheHeadline", () => {
+describe('TheHeadline', () => {
   beforeEach(() => {
     vi.useFakeTimers();
   });
@@ -12,39 +12,39 @@ describe("TheHeadline", () => {
     vi.useRealTimers();
   });
 
-  it("displays introductory action verb", () => {
+  it('displays introductory action verb', () => {
     render(TheHeadline);
 
-    const actionPhrase = screen.getByRole("heading", {
+    const actionPhrase = screen.getByRole('heading', {
       name: /build for everyone/i,
     });
     expect(actionPhrase).toBeInTheDocument();
   });
 
-  it("changes action verb at a consistent interval", () => {
+  it('changes action verb at a consistent interval', () => {
     const mock = vi.fn();
-    vi.stubGlobal("setInterval", mock);
+    vi.stubGlobal('setInterval', mock);
 
     render(TheHeadline);
 
     expect(mock).toHaveBeenCalled();
   });
 
-  it("swaps action verb after interval", async () => {
+  it('swaps action verb after interval', async () => {
     render(TheHeadline);
     vi.advanceTimersToNextTimer();
 
     await nextTick();
-    const actionPhrase = screen.getByRole("heading", {
+    const actionPhrase = screen.getByRole('heading', {
       name: /create for everyone/i,
     });
 
     expect(actionPhrase).toBeInTheDocument();
   });
 
-  it("removes interval when component disappears", () => {
+  it('removes interval when component disappears', () => {
     const clearInterval = vi.fn();
-    vi.stubGlobal("clearInterval", clearInterval);
+    vi.stubGlobal('clearInterval', clearInterval);
 
     const { unmount } = render(TheHeadline);
     unmount();

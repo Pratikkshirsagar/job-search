@@ -32,11 +32,5 @@ export default {
     TheHeadline,
     JobSearchForm,
   },
-  beforeCreate() {
-    console.log('Before Create');
-  },
-  created() {
-    console.log('Create');
-  },
 };
 </script>

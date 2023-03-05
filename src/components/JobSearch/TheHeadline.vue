@@ -1,7 +1,7 @@
 <template>
   <section class="mb-16">
     <h1 class="mb-14 text-8xl font-bold tracking-tighter">
-      <span :class="actionClass">{{ action }}</span>
+      <span :class="actionClasses">{{ action }}</span>
       <br />
       for everyone
     </h1>
@@ -21,7 +21,7 @@ export default {
     };
   },
   computed: {
-    actionClass() {
+    actionClasses() {
       return {
         [this.action.toLowerCase()]: true,
       };
@@ -30,7 +30,7 @@ export default {
   created() {
     this.changeTitle();
   },
-  beforeUnMount() {
+  beforeUnmount() {
     clearInterval(this.interval);
   },
   methods: {
